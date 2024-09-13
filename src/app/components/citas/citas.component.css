@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+
+
+nav {
+background-color: #0099ff; /* Cambia este color por el que desees */
+padding: 10px;
+}
+
+nav a {
+color: #fff; /* Color de los enlaces */
+text-decoration: none;
+padding: 10px 15px;
+font-weight: bold;
+}
+
+nav a:hover {
+background-color: #2980b9; /* Color al pasar el mouse sobre el enlace */
+border-radius: 5px;
+}

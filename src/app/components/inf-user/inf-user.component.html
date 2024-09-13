@@ -1,0 +1,57 @@
+
+
+<div class="background-image"></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <h5 href="/home" class="active">Citas Mendicas</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/registro-cita-pedagogiaU" routerLinkActive="active">Registro de Citas Pedadogia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/horariosU" routerLinkActive="active">Horarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/historialU" routerLinkActive="active">Historial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/recordatoriosU" routerLinkActive="active">Recordatorios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/configuracion-usuarioU" routerLinkActive="active">Configuración del Usuario</a>
+            </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-outline-primary me-2" type="button" routerLink="/home">Cerrar sesion</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4" *ngIf="isAuthenticated && usuarios">
+    <div class="card mx-auto" style="max-width: 600px;">
+      <div class="card-header text-center">
+        <h4>Información del Usuario</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Nombre:</strong> {{ usuarios.nombre }}</li>
+          <li class="list-group-item"><strong>Fecha de Nacimiento:</strong> {{ usuarios.fecha_nacimiento | date:'mediumDate' }}</li>
+          <li class="list-group-item"><strong>Teléfono:</strong> {{ usuarios.telefono }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ usuarios.email }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-4" *ngIf="!isAuthenticated">
+    <div class="alert alert-danger text-center" role="alert">
+      No estás autenticado. Redirigiendo a la página principal...
+    </div>
+  </div>
+  

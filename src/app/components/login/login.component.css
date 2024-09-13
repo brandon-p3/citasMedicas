@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .background-image {
+    background: url('https://www.recursosdeautoayuda.com/wp-content/uploads/2019/08/vender-comportamiento.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+
+nav {
+  background-color: #0099ff; /* Cambia este color por el que desees */
+  padding: 10px;
+}
+
+nav a {
+  color: #fff; /* Color de los enlaces */
+  text-decoration: none;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #2980b9; /* Color al pasar el mouse sobre el enlace */
+  border-radius: 5px;
+}

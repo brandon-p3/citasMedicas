@@ -1,0 +1,53 @@
+<div class="background-image"></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <h5 href="/home" class="active">Citas Médicas</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/registro-cita-pedagogiaU" routerLinkActive="active">Registro de Citas Pedagogía</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/horariosU" routerLinkActive="active">Horarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/historialU" routerLinkActive="active">Historial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/recordatoriosU" routerLinkActive="active">Recordatorios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/configuracion-usuarioU" routerLinkActive="active">Configuración del Usuario</a>
+            </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-outline-primary me-2" type="button" routerLink="/home">Cerrar sesión</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<br>
+<div class="card">
+  <div class="card-header">
+    <h4>Historiales Registrados</h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group">
+          <!-- Filtrar los elementos del historial según el ID del usuario -->
+          <a *ngFor="let item of historialList | filterByUserId: usuarioId" class="list-group-item list-group-item-action">
+            <h5 class="mb-1">{{ item.nombre }}</h5>
+            <p class="mb-1"><strong>Padecimientos:</strong> {{ item.padecimientos }}</p>
+            <p class="mb-1"><strong>Tiempo de Padecimiento:</strong> {{ item.tiempo_padecimiento }}</p>
+            <p class="mb-1"><strong>Notas:</strong> {{ item.notas || 'N/A' }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

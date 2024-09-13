@@ -1,0 +1,173 @@
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .background-image {
+      background: url('https://www.recursosdeautoayuda.com/wp-content/uploads/2019/08/vender-comportamiento.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .navbar {
+      z-index: 1;
+      /* Esta es camcio de color a la barra superior de las historias de usuario */
+.navbar, .navbar-custom {
+  background-color: #0884ff;
+  color: rgb(0, 44, 174);
+  padding: 10px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav {
+    background-color: #0099ff; /* Cambia este color por el que desees */
+    padding: 10px;
+}
+
+nav a {
+    color: #fff; /* Color de los enlaces */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #2980b9; /* Color al pasar el mouse sobre el enlace */
+    border-radius: 5px;
+}
+.hero {
+      background: url('https://via.placeholder.com/1920x600') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      padding: 5rem 0;
+    }
+    .doctor-card {
+      border: 1px solid #ddd;
+      border-radius: .25rem;
+      overflow: hidden;
+    }
+    .doctor-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .doctor-card .card-body {
+      padding: 1rem;
+    }
+    .footer {
+      background-color: #f8f9fa;
+      padding: 2rem 0;
+    }
+    .footer a {
+      color: #007bff;
+    }
+    }
+  </style>
+
+  <div class="background-image"></div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <h5 href="/home" class="active">Citas Mendicas</h5>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/registro-cita-pedagogia" routerLinkActive="active">Registro de Citas Pedadogia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/horarios" routerLinkActive="active">Horarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/historial" routerLinkActive="active">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/recordatorios" routerLinkActive="active">Recordatorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/configuracion-usuario" routerLinkActive="active">Configuración del Usuario</a>
+          </li> -->
+        </ul>
+        <form class="d-flex">
+          <button class="btn btn-outline-primary me-2" type="button" routerLink="/login">Inciar sesion</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Hero Section -->
+  <section class="hero text-center text-white">
+    <div class="container">
+      <h2 class="display-4">Agenda tu cita médica hoy</h2>
+      <p class="lead">Encuentra médicos, verifica disponibilidad y agenda tu cita en minutos.</p>
+    </div>
+  </section>
+
+  <!-- Featured Doctors -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Médicos Destacados</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="doctor-card card">
+          <img src="https://www.ssdrsimi.com.mx/assets/images/dr-simi.png" class="card-img-top" alt="Doctor 1">
+          <div class="card-body">
+            <h5 class="card-title">Dr. Juan Pérez</h5>
+            <p class="card-text">Especialista en Cardiología.</p>
+            <a href="#" class="btn btn-primary">Ver perfil</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="doctor-card card">
+          <img src="https://www.ssdrsimi.com.mx/assets/images/dr-simi.png" class="card-img-top" alt="Doctor 2">
+          <div class="card-body">
+            <h5 class="card-title">Dra. María Gómez</h5>
+            <p class="card-text">Especialista en Ginecología.</p>
+            <a href="#" class="btn btn-primary">Ver perfil</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="doctor-card card">
+          <img src="https://www.ssdrsimi.com.mx/assets/images/dr-simi.png" class="card-img-top" alt="Doctor 3">
+          <div class="card-body">
+            <h5 class="card-title">Dr. Carlos López</h5>
+            <p class="card-text">Especialista en Neurología.</p>
+            <a href="#" class="btn btn-primary">Ver perfil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <p>&copy; 2024 Citas Médicas. Todos los derechos reservados.</p>
+      <a href="#">Política de privacidad</a> | 
+      <a href="#">Términos y condiciones</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap and JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+

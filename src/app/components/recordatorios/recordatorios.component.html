@@ -1,0 +1,111 @@
+
+
+<div class="background-image"></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <h5 href="/home" class="active">Citas Mendicas</h5>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/registro-cita-pedagogiaU" routerLinkActive="active">Registro de Citas Pedadogia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/horariosU" routerLinkActive="active">Horarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/historialU" routerLinkActive="active">Historial</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/recordatoriosU" routerLinkActive="active">Recordatorios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/configuracion-usuarioU" routerLinkActive="active">Configuración del Usuario</a>
+            </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-outline-primary me-2" type="button" routerLink="/home">Cerrar sesion</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-4">
+    <!-- Card for Form and Table -->
+    <div class="card mx-auto" style="max-width: 600px;">
+      <div class="card-header">
+        <h4 class="text-center">Formulario de Recordatorio</h4>
+      </div>
+      <div class="card-body">
+        <!-- Form for Recordatorio -->
+        <form [formGroup]="recordatorioForm" (ngSubmit)="onSubmit()">
+          <!-- Phone Number Field -->
+          <div class="form-group row">
+            <label for="telefono" class="col-sm-4 col-form-label">Teléfono:</label>
+            <div class="col-sm-8">
+              <input id="telefono" formControlName="telefono" type="text" class="form-control" placeholder="Ingrese el número de teléfono" />
+              <div class="text-danger" *ngIf="recordatorioForm.get('telefono')?.invalid && recordatorioForm.get('telefono')?.touched">
+                El teléfono es requerido.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Email Field -->
+          <div class="form-group row mt-3">
+            <label for="correo" class="col-sm-4 col-form-label">Correo Electrónico:</label>
+            <div class="col-sm-8">
+              <input id="correo" formControlName="correo" type="email" class="form-control" placeholder="Ingrese el correo electrónico" />
+              <div class="text-danger" *ngIf="recordatorioForm.get('correo')?.invalid && recordatorioForm.get('correo')?.touched">
+                El correo electrónico es requerido y debe ser válido.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Frequency Field -->
+          <div class="form-group row mt-3">
+            <label for="frecuencia" class="col-sm-4 col-form-label">Frecuencia:</label>
+            <div class="col-sm-8">
+              <select id="frecuencia" formControlName="frecuencia" class="form-control">
+                <option value="" disabled>Seleccione una frecuencia</option>
+                <option value="diaria">Diaria</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensual">Mensual</option>
+              </select>
+              <div class="text-danger" *ngIf="recordatorioForm.get('frecuencia')?.invalid && recordatorioForm.get('frecuencia')?.touched">
+                Seleccione una frecuencia.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Usuario Field (Hidden) -->
+          <div class="form-group row mt-3" *ngIf="false">
+            <label for="usuario_id" class="col-sm-4 col-form-label">Usuario:</label>
+            <div class="col-sm-8">
+              <select id="usuario_id" formControlName="usuario_id" class="form-control">
+                <option *ngFor="let user of users" [value]="user.id">
+                  {{ user.nombre }}
+                </option>
+              </select>
+              <div class="text-danger" *ngIf="recordatorioForm.get('usuario_id')?.invalid && recordatorioForm.get('usuario_id')?.touched">
+                El ID de usuario es requerido.
+              </div>
+            </div>
+          </div>
+  
+          <!-- Submit and Update Buttons -->
+          <div class="form-group row mt-4">
+            <div class="col-sm-12 text-center">
+              <button type="submit" class="btn btn-primary" [disabled]="recordatorioForm.invalid">
+                {{ currentItem.id ? 'Actualizar' : 'Guardar' }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,132 @@
+<div class="background-image"></div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <h5 href="/home" class="active">Citas Mendicas</h5>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/registro-cita-pedagogia" routerLinkActive="active">Registro de Citas Pedadogia</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/horarios" routerLinkActive="active">Horarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/historial" routerLinkActive="active">Historial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/recordatorios" routerLinkActive="active">Recordatorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/configuracion-usuario" routerLinkActive="active">Configuración del Usuario</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-primary me-2" type="button" routerLink="/home">Cerrar Secion</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <!-- Form for creating/updating Historial records -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <h4>Formulario de Historial</h4>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="historialForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+            <div class="col-sm-10">
+              <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Ingrese el nombre del historial" />
+              <div class="text-danger" *ngIf="historialForm.get('nombre')?.invalid && historialForm.get('nombre')?.touched">
+                El nombre es requerido.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mt-3">
+            <label for="padecimientos" class="col-sm-2 col-form-label">Padecimientos:</label>
+            <div class="col-sm-10">
+              <input id="padecimientos" formControlName="padecimientos" type="text" class="form-control" placeholder="Ingrese los padecimientos" />
+              <div class="text-danger" *ngIf="historialForm.get('padecimientos')?.invalid && historialForm.get('padecimientos')?.touched">
+                Los padecimientos son requeridos.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mt-3">
+            <label for="tiempo_padecimiento" class="col-sm-2 col-form-label">Tiempo de Padecimiento:</label>
+            <div class="col-sm-10">
+              <input id="tiempo_padecimiento" formControlName="tiempo_padecimiento" type="text" class="form-control" placeholder="Ingrese el tiempo de padecimiento" />
+              <div class="text-danger" *ngIf="historialForm.get('tiempo_padecimiento')?.invalid && historialForm.get('tiempo_padecimiento')?.touched">
+                El tiempo de padecimiento es requerido.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mt-3">
+            <label for="notas" class="col-sm-2 col-form-label">Notas:</label>
+            <div class="col-sm-10">
+              <textarea id="notas" formControlName="notas" class="form-control" placeholder="Ingrese notas adicionales (opcional)"></textarea>
+            </div>
+          </div>
+  
+          <div class="form-group row mt-3">
+            <label for="usuario_id" class="col-sm-2 col-form-label">Usuario:</label>
+            <div class="col-sm-10">
+              <div class="form-group">
+                <label for="usuario_id">Usuario</label>
+                <select id="usuario_id" formControlName="usuario_id" class="form-control">
+                  <option *ngFor="let user of users" [value]="user.id">
+                    {{ user.nombre }}
+                  </option>
+                </select>
+              </div>
+              <div class="text-danger" *ngIf="historialForm.get('usuario_id')?.invalid && historialForm.get('usuario_id')?.touched">
+                El ID de usuario es requerido.
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group row mt-4">
+            <div class="col-sm-10 offset-sm-2">
+              <button type="submit" class="btn btn-primary" [disabled]="historialForm.invalid">
+                {{ currentItem.id ? 'Actualizar' : 'Guardar' }}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Card layout to display existing Historial records -->
+    <div class="card">
+      <div class="card-header">
+        <h4>Historiales Registrados</h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="list-group">
+              <a *ngFor="let item of historialList" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ item.nombre }}</h5>
+                <p class="mb-1"><strong>Padecimientos:</strong> {{ item.padecimientos }}</p>
+                <p class="mb-1"><strong>Tiempo de Padecimiento:</strong> {{ item.tiempo_padecimiento }}</p>
+                <p class="mb-1"><strong>Notas:</strong> {{ item.notas || 'N/A' }}</p>
+                <p class="mb-1"><strong>Usuario ID:</strong> {{ item.usuario_id }}</p>
+                <div class="d-flex justify-content-end">
+                  <button (click)="editItem(item)" class="btn btn-warning btn-sm me-2">Editar</button>
+                  <button (click)="deleteItem(item.id)" class="btn btn-danger btn-sm">Eliminar</button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
