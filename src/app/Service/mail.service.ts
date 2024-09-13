@@ -7,7 +7,7 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class MailService {
-  private apiUrl = 'http://localhost:3010/api/mail/send-mail'; // Change if needed
+  private apiUrl = 'https://citasmedicasserver-production.up.railway.app/api/mail/send-mail'; // Change if needed
 
   constructor(private http: HttpClient) { }
 

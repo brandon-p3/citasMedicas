@@ -8,8 +8,8 @@ import {Historial, Recordatorio, RegistroCita, Usuario } from '../models/modelos
 })
 export class ServicioGeneralService {
 
-  private baseUrl = 'http://localhost:3000';
-    API_URI='http://localhost:3000/api';
+  private baseUrl = 'https://citasmedicasserver-production.up.railway.app';
+    API_URI='https://citasmedicasserver-production.up.railway.app/api';
   constructor(private http: HttpClient) { }
 //Metodos GET
 

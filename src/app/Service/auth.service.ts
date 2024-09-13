@@ -13,7 +13,7 @@ export class AuthService {
 
 loginToServer(correo: string, password1: string) {
   // Aquí realizas una solicitud HTTP al backend
-  return this.http.post('http://localhost:3000/api/login', { correo, password1 });
+  return this.http.post('https://citasmedicasserver-production.up.railway.app/api/login', { correo, password1 });
 }
 isAuthenticated(): boolean {
   return this.isLoggedIn;
